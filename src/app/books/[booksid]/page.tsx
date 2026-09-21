@@ -10,7 +10,7 @@ interface Bookdataprops{
 }
 const page = async ({params}:Bookdataprops) => {
     const {booksid}= await params
-    const response= await fetch("http://localhost:3000/booksData.json")
+    const response= await fetch(`${process.env.NEXT_PUBLIC_server_url}/booksData.json`)
     const data=await response.json()
     const book=data.find((book:IBook)=>book.bookId=== parseInt(booksid))as IBook
 

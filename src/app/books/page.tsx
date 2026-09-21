@@ -6,7 +6,7 @@ import { IBook } from "@/types/Books-types";
 import BooksCard from "@/components/Shards/BooksCard";
 
 const getBooks = async () => {
-  const rec = await fetch("http://localhost:3000/booksData.json");
+  const rec = await fetch(`${process.env.NEXT_PUBLIC_server_url}/booksData.json`);
 
   return rec.json();
 };
