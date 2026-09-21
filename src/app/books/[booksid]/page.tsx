@@ -18,7 +18,7 @@ const page = async ({params}:Bookdataprops) => {
     
      }catch(error){
         console.error('Error fetching book data:', error)
-        return []
+        return undefined
      }
   
 

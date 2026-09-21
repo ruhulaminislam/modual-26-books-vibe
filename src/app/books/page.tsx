@@ -11,8 +11,8 @@ const getBooks = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching book data:', error);
-    return [];
+    console.error('Error fetching book datas:', error);
+    return undefined; // Return undefined or handle the error as needed
   }
 };
 
