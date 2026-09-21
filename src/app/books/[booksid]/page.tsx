@@ -10,17 +10,17 @@ interface Bookdataprops{
 }
 const page = async ({params}:Bookdataprops) => {
     const {booksid}= await params
-    let book: IBook | undefined
-     try{
+ 
   const response= await fetch(`${process.env.NEXT_PUBLIC_server_url}/booksData.json`)
+  if(!response.ok){
+    return []
+  }
     const data=await response.json()
-     book=data.find((book:IBook)=>book.bookId=== parseInt(booksid))as IBook
+
+
+    const book=data.find((book:IBook)=>book.bookId=== parseInt(booksid))as IBook
     
-     }catch(error){
-        console.error('Error fetching book data:', error)
-        return undefined
-     }
-  
+   
 
   return (
   <section className="container mx-auto mt-[70px] px-4 pb-10">
