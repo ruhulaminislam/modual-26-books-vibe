@@ -5,8 +5,10 @@ import BooksCard from "../Shards/BooksCard";
 import { IBook } from "@/types/Books-types";
 
 const getBooks = async () => {
-  const rec = await fetch("http://localhost:3000/booksData.json");
-
+  const rec = await fetch(`${process.env.NEXT_PUBLIC_server_url}/booksData.json`);
+   if (!rec.ok) {
+    return [];
+  }
   return rec.json();
 };
 
